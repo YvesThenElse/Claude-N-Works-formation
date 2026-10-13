@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": ["Bash(echo *)", "Bash(cat *)", "Bash(ls *)", "Write", "Read"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "statusMessage": "le chef de rang goûte…",
+            "command": "cat > /tmp/claude-hook-entree.json; printf '%s  AVANT  ' \"$(date +%H:%M:%S.%3N)\" >> journal-des-hooks.txt; sed -n 's/.*\"command\":\"\\([^\"]*\\)\".*/\\1/p' /tmp/claude-hook-entree.json >> journal-des-hooks.txt; sleep 0.15"
+          },
+          {
+            "type": "command",
+            "statusMessage": "le chef de rang renvoie le plat…",
+            "command": "if grep -q 'plat-renvoye' /tmp/claude-hook-entree.json; then printf '%s  REFUS\\n' \"$(date +%H:%M:%S.%3N)\" >> journal-des-hooks.txt; printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Le chef de rang a goûté : ce plat ne part pas en salle.\"}}\\n'; fi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '%s  APRÈS\\n' \"$(date +%H:%M:%S.%3N)\" >> journal-des-hooks.txt"
+          }
+        ]
+      }
+    ]
+  }
+}

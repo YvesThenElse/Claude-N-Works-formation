@@ -1,0 +1,5 @@
+# Ce que les exercices produisent ne se versionne jamais : on part toujours d'un
+# répertoire propre, et il n'y a rien à pousser au retour.
+*/resultat/
+*/journal.ndjson
+.DS_Store
