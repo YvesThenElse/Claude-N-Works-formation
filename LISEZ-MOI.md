@@ -20,10 +20,14 @@ cd Claude-N-Works-formation/01-lire-une-session
 Quand tout est fini, **supprimez le clone**. Rien n'est à garder, rien n'est à pousser :
 les exercices sont du terrain d'entraînement, pas du travail.
 
-> **Au premier lancement de chaque exercice**, Claude Code demande si le répertoire est de
-> confiance. Répondez oui. Sans cela, les permissions déclarées par l'exercice sont
-> ignorées — mesuré : *« Ignoring 1 permissions.allow entry from .claude/settings.json:
-> this workspace has not been trusted »* — et l'exercice se bloque au premier script.
+> **Au tout premier lancement**, Claude Code demande si le répertoire est de confiance.
+> Répondez oui. Sans cela les permissions déclarées par l'exercice sont ignorées — mesuré :
+> *« Ignoring 5 permissions.allow entries from .claude/settings.json: this workspace has
+> not been trusted »* — et l'agent s'arrête pour demander au lieu d'agir.
+>
+> Bonne nouvelle, mesurée elle aussi : **la confiance porte sur la racine du dépôt git**,
+> pas sur chaque sous-répertoire. Une seule acceptation vaut pour tous les exercices du
+> clone.
 
 ## Pourquoi `./demarrer.sh` et pas `claude`
 
