@@ -1,5 +1,12 @@
 {
   "permissions": {
-    "allow": ["Read", "Write", "Bash(ls *)", "Bash(wc *)", "Bash(cat *)"]
+    "allow": [
+      "Read",
+      "Write",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Bash(cat *)",
+      "Bash(mkdir *)"
+    ]
   }
 }
