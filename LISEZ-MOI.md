@@ -17,6 +17,11 @@ cd Claude-N-Works-formation/01-lire-une-session
 ./remise-a-zero.sh       # le répertoire redevient neuf
 ```
 
+**Sous Windows** (cmd, PowerShell, cmder), utilisez les équivalents `.cmd`, présents dans
+chaque exercice : `demarrer.cmd` et `remise-a-zero.cmd`. Ne passez pas par
+`bash demarrer.sh` : le bash de WSL ne voit pas le `claude` installé côté Windows
+(*« exec: claude: not found »*).
+
 Quand tout est fini, **supprimez le clone**. Rien n'est à garder, rien n'est à pousser :
 les exercices sont du terrain d'entraînement, pas du travail.
 
