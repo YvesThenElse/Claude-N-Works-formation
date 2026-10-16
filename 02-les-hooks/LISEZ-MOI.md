@@ -77,11 +77,42 @@ La preuve est propre : lancé par `./demarrer.sh`, qui exclut votre configuratio
 personnelle, l'exercice produit **zéro** enregistrement de hook — alors que le journal
 ci-dessus prouve que les hooks ont tourné et que l'agent vous a rapporté le refus.
 
+## Regarder — ③ ce qui RESTE visible : l'effet
+
+Le hook n'a pas de trace, mais **son effet en a une**. Gardez la voie *outils* et cliquez
+l'appel refusé — celui dont la bande de durée est **creuse**.
+
+La carte dit :
+
+| | |
+|---|---|
+| **Issue** | REFUSÉ — l'outil n'a pas tourné |
+| **Refus** | refusé par une règle de permission |
+| **Raison donnée** | Le chef de rang a goûté : ce plat ne part pas en salle. |
+
+La raison est celle de votre hook, mot pour mot. Et la bande creuse est le point à retenir
+visuellement : un appel **refusé** n'est pas un appel qui **échoue**. L'échec veut dire que
+l'outil a tourné et mal fini ; le refus veut dire qu'il n'a pas tourné du tout — ce que le
+journal disait déjà par l'`APRÈS` manquant.
+
+**L'observateur s'arrête là où la trace s'arrête.** Il écrit « refusé par une règle de
+permission », pas « refusé par un hook » — parce que la trace ne le dit pas : un refus de
+hook et un refus de règle portent le même `toolDenialKind`, et aucun champ ne les sépare.
+Ce qui les sépare est la raison. Une règle de Claude Code rend toujours la même phrase,
+« *Permission to use Bash has been denied…* » ; votre hook rend la sienne. La carte le
+signale sans l'affirmer :
+
+> la raison n'est pas celle que rend une règle de Claude Code : elle a été fournie par ce
+> qui a refusé — un hook, en pratique. La trace ne nomme pas son auteur.
+
+C'est la bonne manière de lire un outil d'observation : il ne doit pas deviner à votre place.
+
 ## Ce qu'il faut en retenir
 
-Un hook de projet **agit sans laisser de trace**. Il peut refuser une commande, en modifier
-l'entrée, injecter du texte dans la conversation — et rien de tout cela n'apparaîtra à qui
-relit le transcript ensuite. Pour un dépôt partagé en équipe, c'est un point d'attention
+Un hook de projet **agit sans laisser de trace** — mais son **effet**, lui, en laisse une.
+Le hook peut refuser une commande, en modifier l'entrée, injecter du texte dans la
+conversation ; de tout cela, seul ce qui change le cours des choses apparaîtra à qui relit
+le transcript ensuite, et jamais sous le nom de son auteur. Pour un dépôt partagé en équipe, c'est un point d'attention
 réel : le comportement de l'agent dépend de quelque chose que la trace ne documente pas.
 
 En revanche, ce que la voie *hooks* montre très bien, c'est **ce que votre propre
