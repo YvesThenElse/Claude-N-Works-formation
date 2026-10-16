@@ -21,9 +21,9 @@ Cet exercice déclare trois hooks dans son `.claude/settings.json` :
 
 | Hook | Ce qu'il fait |
 |---|---|
-| `PreToolUse` sur `Bash` | écrit la commande dans `journal-des-hooks.txt` et **attend 150 ms** |
-| `PreToolUse` sur `Bash` | **refuse** toute commande contenant `plat-renvoye` |
-| `PostToolUse` sur `Bash` | écrit `APRÈS` dans le journal |
+| `PreToolUse` sur `Bash` et `PowerShell` | écrit la commande dans `journal-des-hooks.txt` et **attend 150 ms** |
+| `PreToolUse` sur `Bash` et `PowerShell` | **refuse** toute commande contenant `plat-renvoye` |
+| `PostToolUse` sur `Bash` et `PowerShell` | écrit `APRÈS` dans le journal |
 
 Le second est un **chef de rang qui goûte le plat avant l'envoi**. Il refuse en écrivant
 sur sa sortie standard :
@@ -32,6 +32,13 @@ sur sa sortie standard :
 {"hookSpecificOutput":{"hookEventName":"PreToolUse",
   "permissionDecision":"deny","permissionDecisionReason":"…"}}
 ```
+
+> **Pourquoi aussi `PowerShell` ?** Sous Windows, l'agent lance volontiers ses commandes
+> avec l'outil `PowerShell` plutôt qu'avec `Bash`. Un hook ne voit que les outils que nomme
+> son `matcher` : avec `"matcher": "Bash"` seul, `echo plat-renvoye` passait par PowerShell
+> **sans être goûté** — constaté lors d'un essai sous Windows. D'où `"Bash|PowerShell"`.
+> La leçon vaut au-delà de l'exercice : un hook de garde écrit pour un outil ne couvre pas
+> la même commande lancée par un autre.
 
 ## Regarder — ① le journal
 

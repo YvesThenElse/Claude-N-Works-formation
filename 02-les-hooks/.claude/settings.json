@@ -1,11 +1,11 @@
 {
   "permissions": {
-    "allow": ["Bash(echo *)", "Bash(cat *)", "Bash(ls *)", "Write", "Read"]
+    "allow": ["Bash(echo *)", "PowerShell(echo *)", "Bash(cat *)", "Bash(ls *)", "Write", "Read"]
   },
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|PowerShell",
         "hooks": [
           {
             "type": "command",
@@ -22,7 +22,7 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|PowerShell",
         "hooks": [
           {
             "type": "command",
