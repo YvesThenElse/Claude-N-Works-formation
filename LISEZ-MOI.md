@@ -63,5 +63,6 @@ par répertoire de travail.
 |---|---|
 | [`01-lire-une-session`](01-lire-une-session/) | le vocabulaire de l'écran : un tour, un appel d'outil, une réflexion |
 | [`02-les-hooks`](02-les-hooks/) | ce qui s'exécute **autour** de chaque geste, et ce que coûte un hook |
+| [`03-plusieurs-modeles`](03-plusieurs-modeles/) | une session, trois modèles : l'agent principal et deux sous-agents, chacun le sien |
 
 *D'autres suivent.*

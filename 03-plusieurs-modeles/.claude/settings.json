@@ -1,0 +1,6 @@
+{
+  "model": "opus",
+  "permissions": {
+    "allow": ["Read", "Write", "Glob", "Agent"]
+  }
+}
